@@ -118,5 +118,3 @@ var chocolateCakes = cakes.filter(function(cake) {
 })
 console.log(chocolateCakes)
 
-
-// Bonus 
