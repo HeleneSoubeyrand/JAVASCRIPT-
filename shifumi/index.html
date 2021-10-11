@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>Shifumi</title>
+    <meta name="description" content="Shifumi game">
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+  </head>
+
+  <body>
+      <header>
+      <h1>SHI FU MI</h1>
+      </header>
+
+      <div id="StartTxt">
+          <h2>Ready to play ?</h2>
+      </div>
+
+      <button id="btnStone" onClick="onButtonClick(1)" >Pierre</button>
+      <button id="btnPaper" onClick="onButtonClick(2)" >Feuille</button>
+      <button id="btnScissors" onClick="onButtonClick(3)">Ciseaux</button>
+
+      <div class="titlegamer">
+        <h2>You</h2>
+        <h2>Computer</h2>
+      </div>
+
+      <div class="score">
+        <div id="RpScore"></div>
+        <div id="IaScore"></div>
+      </div>
+
+      <div class="gamer">
+
+        <section class="realPlayer">
+            <img id="RP-Sign"/>
+         </section>
+
+         <div class ="alert">
+            <div id="message"></div>
+            <div id="btnReplay" onClick="restart()"></div>
+         </div>
+         
+       
+        <section class="IAPlayer">
+            <img id="IA-Sign"/>
+        </section>
+
+      </div>
+
+    
+     <div id="RoundTxt"></div>
+
+    <script src="index.js"></script>
+  </body>
+
+  </html>

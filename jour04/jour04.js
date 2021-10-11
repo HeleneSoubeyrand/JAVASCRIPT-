@@ -111,5 +111,6 @@ format(3945)
         var max = 90
         var mdp = ""
     }
+}
 
-    // ".fromCharCode()" => renvoie au ASCII 
+    // ".fromCharCode()" => renvoie au ASCII  
