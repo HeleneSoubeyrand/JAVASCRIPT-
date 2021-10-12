@@ -1,37 +1,50 @@
-// Bonus 
+var randomWordFR() = require("random-word-fr")
 var prompt = require("prompt");
+
+var mysteryWord = ""
+var guesses = []
+var solution = []
+var attempt = 0
+
+// Computer's choice
+while (mysteryWord.length === 5) {
+    mysteryWord = randomWordFR()
+    mysteryWord = mysteryWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+}
+
 prompt.start()
 
-var longueurMot = randomWord().length - 1 
-var chancesMax = 10 
-var chancesNum = 0
-
-// Computer choice
-var randomWord = require("random-word-fr")
-
-// function réponse 
-var answer =
 
 // function jeu
-function getWord() {
-    prompt.get ({
-        name: "play",
-        description: "Quel est le mot mystère ?",
-        replace: "_"
-    },
-    function (err, res) { 
-        answer = res.getWord
-        if (chancesNum <= chancesMax && answer === false ) {
-            chancesNum = chances + 1
-            console.log(`oups... plus que ${chancesNum} chances !`)
-            getWord()
-        } else if (chancesNum <= chancesMax && answer === true ) {
-                console.log("Vous avez gagné !")
-        } else if (chancesNum > chancesMax && answer === false ) {
+function play() {
+    prompt.get ({ name: "input", description: "Donnez une lettre"}, function (err, res) { 
+       attempt = attempt + 1
+       guesses.push(res.input)
+
+       solution = mysteryWord.split("").map(function(letter) {
+        if (attempt === 10 ) {
             console.log("Vous avez perdu !")
+        } else (guesses.includes(letter)) {
+            // includes verifie que les éléments sont dans le tableau
+            return letter
+        } else {
+            return "_"
+        }
+
+       }) 
+
+       
+        if (solution.join("") === mysteryWord) {
+                console.log("Vous avez gagné !")
+        } 
+        if () {
+            console.log(`oups... plus que ${attempt} chances !`) 
+            attempt = attempt + 1
+            play()
         } 
     })
 }
-getWord()
-console.log(chancesNum)
-console.log(randomWord())
+
+play()
+
+

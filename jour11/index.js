@@ -1,33 +1,56 @@
 var fs = require("fs")
 const { type } = require("os")
 
+// Lire un fichier 
+fs.readFile("jour07.txt", function (err,data) {
+	if (err) {
+		console.error(err)
+		return
+	}
+    console.log(data.toString())
+})
+
 // Ajouter du contenu
 fs.appendFile("jour07.txt", "name: Samantha Jones, email: sam.jonesg@example.com", function(err) {
     if(err) {
-        return console.log(err)
+        return console.error(err)
     }
-    console.log("Texte modifié ")
+    console.log(data.toString())
 })
 
 // Remplacer tout le contenu
 fs.writeFile("jour07.txt", "Berenice Hubert, email: Berenice.Hub@exemple.com", function(err) {
     if(err) {
-        return console.log(err)
+        return console.error(err)
     }
 })
 
 // Lire un fichier 
 fs.readFile("jour07.txt", function (err,data) {
+	if (err) {
+		console.error(err)
+		return
+	}
     console.log("lecture texte modifié " + data.toString())
 })
 
 // Supprimer un fichier 
 fs.unlink("jour07.txt", function (err) {
     if(err) {
-        return console.log(err)
+        return console.error(err)
     }
     console.log("fichier supprimé!")
 })
+
+// if fs.existsSync(path) {
+// 	fs.readFile("jour07.txt", function (err,data) {
+// 		if (err) {
+// 			console.error(err)
+// 			return
+// 		}
+// 		console.log(data.toString())
+// 	})
+// }
 
 
 // 02 - Map Double
@@ -50,8 +73,8 @@ var longNames = [
 	}
 ]
 
-var shortNames = longNames.map(function (element) {
-    return { name : `${element.firstName} ${element.lastName}` }
+var shortNames = longNames.map(function (longName) {
+    return { name : `${longName.firstName} ${longName.lastName}` }
 }  
 )
 console.log(shortNames) 
@@ -61,8 +84,8 @@ console.log(shortNames)
 var array = [1, "toto", 34, "javascript", 8]
 console.log(typeof array[0])
 
-var numbers = array.filter(function(num) {
-    return typeof num === "number"
+var numbers = array.filter(function(number) {
+    return typeof number === "number"
 })
 console.log (numbers)
 
@@ -116,5 +139,12 @@ var chocolateCakes = cakes.filter(function(cake) {
         status: "sold out"
     }
 })
+
+	// OU
+	// return {
+		// ... cake,
+		// status: "Sold out!"
+	// }
+
 console.log(chocolateCakes)
 

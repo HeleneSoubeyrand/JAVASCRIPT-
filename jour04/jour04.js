@@ -93,7 +93,7 @@ function format(num) {
 format(3945) 
 
 // autre option d'affichage du résultat : 
-    // return `${heure} : ${minute} : ${seconde}`  dans la function 
+    // return `${heure} : ${minute} : ${seconde}` dans la fonction 
     // puis var result = format(3700)
     // puis console.log(result)
 
